@@ -98,18 +98,25 @@ exerciseRouter.get("/category/:category", async (req, res) => {
     });
 
     if (exercises.length === 0) {
-      return res.status(404).send({
-        error: {
+      return res.status(404).send([
+        {
+          success: false,
           message:
             "The given category does not match any exercises in our system",
-          status: "NOT FOUND",
+          data: "NOT FOUND",
         },
-      });
+      ]);
     }
 
     res.status(200).send(exercises);
   } catch (error) {
-    res.status(500).send(`Error: ${error.message}`);
+    res.status(500).send([
+      {
+        success: false,
+        message: `Error occurred while fetching exercise by  ${req.params.category}`,
+        data: error.message,
+      },
+    ]);
   }
 });
 
