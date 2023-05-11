@@ -25,6 +25,7 @@ const exerciseSchema = new mongoose.Schema(
   {
     id: { type: String, required: true, unique: true },
     name: { type: String, required: true, minlength: 5 },
+    group: { type: String, required: true },
     category: { type: String, required: true },
     equipment: { type: String, required: true },
     difficultyLevel: { type: Number, required: true },
