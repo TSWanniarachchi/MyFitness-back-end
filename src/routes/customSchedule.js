@@ -55,7 +55,7 @@ customScheduleRouter.post("/", async (req, res) => {
     res.status(200).send([
       {
         success: true,
-        message: "Successfully Inserted!",
+        message: "Successfully Inserted",
         data: newCustomScheduleExercise,
       },
     ]);
@@ -164,7 +164,7 @@ customScheduleRouter.delete("/:userId/:exerciseId", async (req, res) => {
     res.status(200).send([
       {
         success: true,
-        message: "Successfully Deleted!",
+        message: "Successfully Deleted",
         data: deletedExercise,
       },
     ]);
