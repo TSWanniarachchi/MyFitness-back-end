@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Custom Schedule Schema
 const customScheduleSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
