@@ -54,17 +54,24 @@ exerciseRouter.get("/", async (req, res) => {
     const exercises = await exerciseModel.find();
 
     if (exercises.length === 0) {
-      return res.status(404).send({
-        error: {
+      return res.status(404).send([
+        {
+          success: false,
           message: "No exercises found",
-          status: "NOT FOUND",
+          data: exercises,
         },
-      });
+      ]);
     }
 
     res.status(200).send(exercises);
   } catch (error) {
-    res.status(500).send(`Error: ${error.message}`);
+    res.status(500).send([
+      {
+        success: false,
+        message: "Error occurred while fetching exercise",
+        data: error.message,
+      },
+    ]);
   }
 });
 
@@ -76,17 +83,24 @@ exerciseRouter.get("/:id", async (req, res) => {
     });
 
     if (exercise.length === 0) {
-      return res.status(404).send({
-        error: {
+      return res.status(404).send([
+        {
+          success: false,
           message: "The given ID does not match any exercise in our system",
-          status: "NOT FOUND",
+          data: exercises,
         },
-      });
+      ]);
     }
 
     res.status(200).send(exercise);
   } catch (error) {
-    res.status(500).send(`Error: ${error.message}`);
+    res.status(500).send([
+      {
+        success: false,
+        message: "Error occurred while fetching exercise",
+        data: error.message,
+      },
+    ]);
   }
 });
 
@@ -102,8 +116,8 @@ exerciseRouter.get("/category/:category", async (req, res) => {
         {
           success: false,
           message:
-            "The given category does not match any exercises in our system",
-          data: "NOT FOUND",
+            "Error: The given category does not match any exercises in our system",
+          data: exercises,
         },
       ]);
     }
@@ -113,7 +127,7 @@ exerciseRouter.get("/category/:category", async (req, res) => {
     res.status(500).send([
       {
         success: false,
-        message: `Error occurred while fetching exercise by  ${req.params.category}`,
+        message: "Error occurred while fetching exercise",
         data: error.message,
       },
     ]);
