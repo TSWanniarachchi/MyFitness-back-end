@@ -38,7 +38,7 @@ customScheduleRouter.post("/", async (req, res) => {
     if (existExercise) {
       return res.status(400).send([
         {
-          success: false,
+          success: true,
           message: "This Exercise is alredy added",
           data: "",
         },
@@ -56,7 +56,7 @@ customScheduleRouter.post("/", async (req, res) => {
       {
         success: true,
         message: "Successfully Inserted",
-        data: newCustomScheduleExercise,
+        data: "",
       },
     ]);
   } catch (error) {
