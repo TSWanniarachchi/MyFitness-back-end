@@ -56,7 +56,7 @@ customScheduleRouter.post("/", async (req, res) => {
       {
         success: true,
         message: "Successfully Inserted",
-        data: newCustomScheduleExercise,
+        data: "",
       },
     ]);
   } catch (error) {
