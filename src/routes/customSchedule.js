@@ -165,7 +165,7 @@ customScheduleRouter.delete("/:userId/:exerciseId", async (req, res) => {
       {
         success: true,
         message: "Successfully Deleted",
-        data: deletedExercise,
+        data: "",
       },
     ]);
   } catch (error) {
