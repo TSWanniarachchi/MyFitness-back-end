@@ -55,7 +55,7 @@ customScheduleRouter.post("/", async (req, res) => {
     res.status(200).send([
       {
         success: true,
-        message: "Successfully Inserted",
+        message: "Exercise successfully added to custom schedule",
         data: "",
       },
     ]);
@@ -149,7 +149,7 @@ customScheduleRouter.delete("/:userId/:exerciseId", async (req, res) => {
       return res.status(404).send([
         {
           success: false,
-          message: "The custom schedule exercise does not exist",
+          message: "Custom schedule exercise does not exist",
           data: "",
         },
       ]);
@@ -164,7 +164,7 @@ customScheduleRouter.delete("/:userId/:exerciseId", async (req, res) => {
     res.status(200).send([
       {
         success: true,
-        message: "Successfully Deleted",
+        message: "Exercise successfully removed",
         data: "",
       },
     ]);
