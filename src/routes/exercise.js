@@ -134,4 +134,34 @@ exerciseRouter.get("/category/:category", async (req, res) => {
   }
 });
 
+// Get Exercises by group (fitness goal)
+exerciseRouter.get("/group/:group", async (req, res) => {
+  try {
+    const exercises = await exerciseModel.find({
+      group: req.params.group,
+    });
+
+    if (exercises.length === 0) {
+      return res.status(404).send([
+        {
+          success: false,
+          message:
+            "Error: The given group does not match any exercises in our system",
+          data: exercises,
+        },
+      ]);
+    }
+
+    res.status(200).send(exercises);
+  } catch (error) {
+    res.status(500).send([
+      {
+        success: false,
+        message: "Error occurred while fetching exercise",
+        data: error.message,
+      },
+    ]);
+  }
+});
+
 module.exports = exerciseRouter;
