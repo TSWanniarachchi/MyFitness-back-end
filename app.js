@@ -7,12 +7,14 @@ const mongoose = require("mongoose");
 const app = express();
 
 //Add Routes
+const userRouter = require("./src/routes/user");
 const exerciseRouter = require("./src/routes/exercise");
 const customScheduleRouter = require("./src/routes/customSchedule");
 
 // Add Middlewares
 app.use(cors());
 app.use(express.json());
+app.use("/api/users", userRouter);
 app.use("/api/exercises", exerciseRouter);
 app.use("/api/custom-schedules", customScheduleRouter);
 
