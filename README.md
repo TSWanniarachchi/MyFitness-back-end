@@ -1,2 +1,3 @@
 # MyFitness-back-end
-My Fitness back end web API project Node &amp; Express
+
+My Fitness back end web API project Node & Express
